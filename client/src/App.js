@@ -1,9 +1,10 @@
+import { useState } from 'react';
+import switchPages from './utils/switchPages';
+
 const App = () => {
-  return (
-    <>
-      <h1>Hi!</h1>
-    </>
-  );
+  const [state, setState] = useState({ currentStep: 1 });
+
+  return <>{switchPages(state, setState)}</>;
 };
 
 export default App;
