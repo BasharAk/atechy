@@ -20,7 +20,8 @@ const App = () => {
       howLong: 3,
       why: [],
       industries: [],
-      interests: []
+      interests: [],
+      saving: 0
     }
   });
 
