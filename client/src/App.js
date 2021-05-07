@@ -18,7 +18,8 @@ const App = () => {
       visited: false,
       relatives: false,
       howLong: 3,
-      why: []
+      why: [],
+      industries: []
     }
   });
 

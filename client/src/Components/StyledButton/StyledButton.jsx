@@ -2,7 +2,7 @@ import Fab from '@material-ui/core/Fab';
 import styled from 'styled-components';
 
 const StyledFab = styled(Fab)`
-  width: 120px;
+  min-width: 120px;
   ${({ col }) =>
     col === 'pur' &&
     `

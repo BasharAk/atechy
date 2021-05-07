@@ -67,7 +67,7 @@ const Step3 = ({ state, setState }) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Grid container spacing={3}>
-                  <Grid item xs={6} md={3}>
+                  <Grid item xs={6} md={4}>
                     <StyledFab
                       variant='extended'
                       col={check('lifeStyle') ? 'pur' : 'white'}
