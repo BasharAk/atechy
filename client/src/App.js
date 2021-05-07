@@ -5,6 +5,7 @@ import ThemeProvider from './Components/ThemeProvider/ThemeProvider';
 const App = () => {
   const [state, setState] = useState({
     currentStep: 1,
+    progress: 0,
     userInfo: {
       firstName: '',
       lastName: '',
@@ -13,7 +14,10 @@ const App = () => {
       gender: '',
       dob: '',
       contact: '',
-      email: ''
+      email: '',
+      visited: false,
+      relatives: false,
+      howLong: 3
     }
   });
 

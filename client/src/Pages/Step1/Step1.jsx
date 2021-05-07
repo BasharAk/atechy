@@ -43,7 +43,8 @@ const Step1 = ({ state, setState }) => {
         contact,
         email
       },
-      currentStep: state.currentStep + 1
+      currentStep: state.currentStep + 1,
+      progress: state.progress + 11
     });
   };
 
@@ -226,7 +227,11 @@ const Step1 = ({ state, setState }) => {
               </Grid>
 
               <Grid item xs={12}>
-                <StyledFab onClick={(e) => confirmStep(e)} variant='extended'>
+                <StyledFab
+                  col='pur'
+                  onClick={(e) => confirmStep(e)}
+                  variant='extended'
+                >
                   Apply Now
                 </StyledFab>
               </Grid>
