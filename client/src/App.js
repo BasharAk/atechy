@@ -22,7 +22,8 @@ const App = () => {
       industries: [],
       interests: [],
       saving: 0,
-      education: ''
+      education: '',
+      educationTime: ''
     }
   });
 
