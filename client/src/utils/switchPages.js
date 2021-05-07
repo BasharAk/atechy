@@ -4,7 +4,7 @@ import Step3 from '../Pages/Step3/Step3';
 import Step4 from '../Pages/Step4/Step4';
 import Step5 from '../Pages/Step5/Step5';
 import Step6 from '../Pages/Step6/Step6';
-//import Step7 from '../Pages/Step7/Step7';
+import Step7 from '../Pages/Step7/Step7';
 //import Step8 from '../Pages/Step8/Step8';
 //import Step9 from '../Pages/Step9/Step9';
 
@@ -24,9 +24,9 @@ const switchPages = (state, setState) => {
 
     case 6:
       return <Step6 state={state} setState={setState} />;
-/*
     case 7:
       return <Step7 state={state} setState={setState} />;
+/*
     case 8:
       return <Step8 state={state} setState={setState} />;
     case 9:

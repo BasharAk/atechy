@@ -21,7 +21,8 @@ const App = () => {
       why: [],
       industries: [],
       interests: [],
-      saving: 0
+      saving: 0,
+      education: ''
     }
   });
 
