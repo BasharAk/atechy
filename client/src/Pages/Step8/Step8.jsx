@@ -23,7 +23,7 @@ const Step8 = ({ state, setState }) => {
         educationTime: education
       },
       currentStep: state.currentStep + 1,
-      progress: state.progress + 11
+      progress: state.progress + 12
     });
   };
 

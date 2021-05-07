@@ -5,7 +5,7 @@ import ThemeProvider from './Components/ThemeProvider/ThemeProvider';
 const App = () => {
   const [state, setState] = useState({
     currentStep: 1,
-    progress: 0,
+    progress: 11,
     userInfo: {
       firstName: '',
       lastName: '',
@@ -21,7 +21,7 @@ const App = () => {
       why: [],
       industries: [],
       interests: [],
-      saving: 0,
+      saving: '',
       education: '',
       educationTime: ''
     }

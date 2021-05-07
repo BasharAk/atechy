@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import whyList from './whyList';
 //////////////////////////////////// Material UI components///////////
 import Box from '@material-ui/core/Box/Box';
 import Typography from '@material-ui/core/Typography/Typography';
@@ -67,87 +67,17 @@ const Step3 = ({ state, setState }) => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Grid container spacing={3}>
-                  <Grid item xs={6} md={4}>
-                    <StyledFab
-                      variant='extended'
-                      col={check('lifeStyle') ? 'pur' : 'white'}
-                      onClick={() => updateWhy('lifeStyle')}
-                    >
-                      Life Style
-                    </StyledFab>
-                  </Grid>
-                  <Grid item xs={6} md={3}>
-                    <StyledFab
-                      variant='extended'
-                      col={check('workOp') ? 'pur' : 'white'}
-                      onClick={() => updateWhy('workOp')}
-                    >
-                      Work
-                    </StyledFab>
-                  </Grid>
-                  <Grid item xs={6} md={3}>
-                    <StyledFab
-                      variant='extended'
-                      col={check('edu') ? 'pur' : 'white'}
-                      onClick={() => updateWhy('edu')}
-                    >
-                      Education
-                    </StyledFab>
-                  </Grid>
-                  <Grid item xs={6} md={3}>
-                    <StyledFab
-                      variant='extended'
-                      col={check('fin') ? 'pur' : 'white'}
-                      onClick={() => updateWhy('fin')}
-                    >
-                      Finance
-                    </StyledFab>
-                  </Grid>
-                  <Grid item xs={6} md={3}>
-                    <StyledFab
-                      variant='extended'
-                      col={check('tour') ? 'pur' : 'white'}
-                      onClick={() => updateWhy('tour')}
-                    >
-                      Tourism
-                    </StyledFab>
-                  </Grid>
-                  <Grid item xs={6} md={3}>
-                    <StyledFab
-                      variant='extended'
-                      col={check('family') ? 'pur' : 'white'}
-                      onClick={() => updateWhy('family')}
-                    >
-                      Family
-                    </StyledFab>
-                  </Grid>
-                  <Grid item xs={6} md={3}>
-                    <StyledFab
-                      variant='extended'
-                      col={check('bus') ? 'pur' : 'white'}
-                      onClick={() => updateWhy('bus')}
-                    >
-                      Buisness
-                    </StyledFab>
-                  </Grid>
-                  <Grid item xs={6} md={3}>
-                    <StyledFab
-                      variant='extended'
-                      col={check('secuirty') ? 'pur' : 'white'}
-                      onClick={() => updateWhy('secuirty')}
-                    >
-                      Secuirty
-                    </StyledFab>
-                  </Grid>
-                  <Grid item xs={6} md={3}>
-                    <StyledFab
-                      variant='extended'
-                      col={check('culture') ? 'pur' : 'white'}
-                      onClick={() => updateWhy('culture')}
-                    >
-                      Culture
-                    </StyledFab>
-                  </Grid>
+                  {whyList.map((why) => (
+                    <Grid item xs={6} md={4}>
+                      <StyledFab
+                        variant='extended'
+                        col={check(why) ? 'pur' : 'white'}
+                        onClick={() => updateWhy(why)}
+                      >
+                        {why}
+                      </StyledFab>
+                    </Grid>
+                  ))}
                 </Grid>
               </Grid>
             </Grid>

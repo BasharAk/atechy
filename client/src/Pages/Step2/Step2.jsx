@@ -129,8 +129,8 @@ const Step2 = ({ state, setState }) => {
                     <Grid item xs={6} md={3}>
                       <StyledFab
                         variant='extended'
-                        col={howLong === 3 ? 'pur' : 'white'}
-                        onClick={() => setHowLong(3)}
+                        col={howLong === 'Up To 3 months' ? 'pur' : 'white'}
+                        onClick={() => setHowLong('Up To 3 months')}
                       >
                         Up To 3 months
                       </StyledFab>
@@ -138,8 +138,8 @@ const Step2 = ({ state, setState }) => {
                     <Grid item xs={6} md={3}>
                       <StyledFab
                         variant='extended'
-                        col={howLong === 6 ? 'pur' : 'white'}
-                        onClick={() => setHowLong(6)}
+                        col={howLong === '3 To 6 months' ? 'pur' : 'white'}
+                        onClick={() => setHowLong('3 To 6 months')}
                       >
                         3 To 6 months
                       </StyledFab>
@@ -147,8 +147,8 @@ const Step2 = ({ state, setState }) => {
                     <Grid item xs={6} md={3}>
                       <StyledFab
                         variant='extended'
-                        col={howLong === 12 ? 'pur' : 'white'}
-                        onClick={() => setHowLong(12)}
+                        col={howLong === '6 To 12 months' ? 'pur' : 'white'}
+                        onClick={() => setHowLong('6 To 12 months')}
                       >
                         6 To 12 months
                       </StyledFab>
@@ -156,8 +156,8 @@ const Step2 = ({ state, setState }) => {
                     <Grid item xs={6} md={3}>
                       <StyledFab
                         variant='extended'
-                        col={howLong === 24 ? 'pur' : 'white'}
-                        onClick={() => setHowLong(24)}
+                        col={howLong === '+12 months' ? 'pur' : 'white'}
+                        onClick={() => setHowLong('+12 months')}
                       >
                         +12 months
                       </StyledFab>
@@ -165,8 +165,8 @@ const Step2 = ({ state, setState }) => {
                     <Grid item xs={6} md={3}>
                       <StyledFab
                         variant='extended'
-                        col={howLong === 48 ? 'pur' : 'white'}
-                        onClick={() => setHowLong(48)}
+                        col={howLong === '+3 years' ? 'pur' : 'white'}
+                        onClick={() => setHowLong('+3 years')}
                       >
                         +3 years
                       </StyledFab>

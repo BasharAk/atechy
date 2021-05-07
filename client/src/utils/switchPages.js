@@ -6,7 +6,7 @@ import Step5 from '../Pages/Step5/Step5';
 import Step6 from '../Pages/Step6/Step6';
 import Step7 from '../Pages/Step7/Step7';
 import Step8 from '../Pages/Step8/Step8';
-//import Step9 from '../Pages/Step9/Step9';
+import Step9 from '../Pages/Step9/Step9';
 
 const switchPages = (state, setState) => {
   switch (state.currentStep) {
@@ -18,21 +18,16 @@ const switchPages = (state, setState) => {
       return <Step3 state={state} setState={setState} />;
     case 4:
       return <Step4 state={state} setState={setState} />;
-
     case 5:
       return <Step5 state={state} setState={setState} />;
-
     case 6:
       return <Step6 state={state} setState={setState} />;
     case 7:
       return <Step7 state={state} setState={setState} />;
-
     case 8:
       return <Step8 state={state} setState={setState} />;
-/*
     case 9:
       return <Step9 state={state} setState={setState} />;
-*/
     default:
       return <Step1 state={state} setState={setState} />;
   }

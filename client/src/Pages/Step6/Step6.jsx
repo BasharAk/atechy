@@ -57,10 +57,10 @@ const Step6 = ({ state, setState }) => {
                     <Grid item xs={6} md={4}>
                       <StyledFab
                         variant='extended'
-                        col={saving === savingsItem.value ? 'pur' : 'white'}
-                        onClick={() => setSaving(savingsItem.value)}
+                        col={saving === savingsItem ? 'pur' : 'white'}
+                        onClick={() => setSaving(savingsItem)}
                       >
-                        {savingsItem.save}
+                        {savingsItem}
                       </StyledFab>
                     </Grid>
                   ))}

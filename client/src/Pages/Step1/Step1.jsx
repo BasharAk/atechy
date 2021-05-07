@@ -105,7 +105,7 @@ const Step1 = ({ state, setState }) => {
                       variant='outlined'
                       InputLabelProps={{ shrink: true, required: true }}
                       type='date'
-                      onChange={() => setDOB()}
+                      onChange={(e) => setDOB(e.target.value)}
                       value={dob}
                     />
                   </Grid>
