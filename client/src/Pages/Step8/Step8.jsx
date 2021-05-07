@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import educationList from './education';
 import { v4 as uuidv4 } from 'uuid';
 //////////////////////////////////// Material UI components///////////
 import Box from '@material-ui/core/Box/Box';
@@ -10,7 +9,7 @@ import StyledFab from '../../Components/StyledButton/StyledButton';
 import BorderLinearProgress from '../../Components/ProgressBar/ProgressBar';
 ////////////////////////////////////////////////////////////////////
 
-const Step8 = ({ state, setState }) => {
+const Step8 = ({ state, setState, educationList }) => {
   const [education, setEducation] = useState(state.userInfo.educationTime);
 
   const confirmStep = (e) => {

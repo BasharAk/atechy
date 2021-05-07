@@ -8,24 +8,46 @@ import Step7 from '../Pages/Step7/Step7';
 import Step8 from '../Pages/Step8/Step8';
 import Step9 from '../Pages/Step9/Step9';
 
-const switchPages = (state, setState) => {
+const switchPages = (state, setState, fetchedData) => {
+  const {
+    whyList,
+    industries,
+    interests,
+    savings,
+    educationList,
+    educationList2
+  } = fetchedData;
   switch (state.currentStep) {
     case 1:
       return <Step1 state={state} setState={setState} />;
     case 2:
       return <Step2 state={state} setState={setState} />;
     case 3:
-      return <Step3 state={state} setState={setState} />;
+      return <Step3 state={state} setState={setState} whyList={whyList} />;
     case 4:
-      return <Step4 state={state} setState={setState} />;
+      return (
+        <Step4 state={state} setState={setState} availableInd={industries} />
+      );
     case 5:
-      return <Step5 state={state} setState={setState} />;
+      return <Step5 state={state} setState={setState} availableInt={interests} />;
     case 6:
-      return <Step6 state={state} setState={setState} />;
+      return <Step6 state={state} setState={setState} savings={savings} />;
     case 7:
-      return <Step7 state={state} setState={setState} />;
+      return (
+        <Step7
+          state={state}
+          setState={setState}
+          educationList={educationList}
+        />
+      );
     case 8:
-      return <Step8 state={state} setState={setState} />;
+      return (
+        <Step8
+          state={state}
+          setState={setState}
+          educationList={educationList2}
+        />
+      );
     case 9:
       return <Step9 state={state} setState={setState} />;
     default:

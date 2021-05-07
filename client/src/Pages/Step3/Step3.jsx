@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import whyList from './whyList';
 import { v4 as uuidv4 } from 'uuid';
 //////////////////////////////////// Material UI components///////////
 import Box from '@material-ui/core/Box/Box';
@@ -10,7 +9,7 @@ import StyledFab from '../../Components/StyledButton/StyledButton';
 import BorderLinearProgress from '../../Components/ProgressBar/ProgressBar';
 ////////////////////////////////////////////////////////////////////
 
-const Step3 = ({ state, setState }) => {
+const Step3 = ({ state, setState, whyList }) => {
   const [why, setWhy] = useState(state.userInfo.why);
 
   const check = (item) => {

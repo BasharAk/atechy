@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import availableInd from './industries';
 import { v4 as uuidv4 } from 'uuid';
 //////////////////////////////////// Material UI components///////////
 import Box from '@material-ui/core/Box/Box';
@@ -10,7 +9,7 @@ import StyledFab from '../../Components/StyledButton/StyledButton';
 import BorderLinearProgress from '../../Components/ProgressBar/ProgressBar';
 ////////////////////////////////////////////////////////////////////
 
-const Step4 = ({ state, setState }) => {
+const Step4 = ({ state, setState, availableInd }) => {
   const [industries, setIndustries] = useState(state.userInfo.industries);
   const check = (item) => {
     return industries.includes(item);

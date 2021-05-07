@@ -1,0 +1,28 @@
+{
+  "name": "atechy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serverinstall": "cd ./fakeserver && npm install",
+    "clientinstall": "cd ./client && npm install",
+    "packagesinstall": "concurrently \"npm run serverinstall\" \"npm run clientinstall\"",
+    "server": "cd ./fakeserver && npm run dev",
+    "client": "cd ./client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BasharAk/atechy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BasharAk/atechy/issues"
+  },
+  "homepage": "https://github.com/BasharAk/atechy#readme",
+  "devDependencies": {
+    "concurrently": "^6.0.2"
+  }
+}
