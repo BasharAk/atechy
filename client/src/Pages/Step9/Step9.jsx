@@ -1,5 +1,4 @@
-import { useState } from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 //////////////////////////////////// Material UI components///////////
 import Box from '@material-ui/core/Box/Box';
 import Typography from '@material-ui/core/Typography/Typography';
@@ -12,11 +11,6 @@ import BorderLinearProgress from '../../Components/ProgressBar/ProgressBar';
 ////////////////////////////////////////////////////////////////////
 
 const Step9 = ({ state, setState }) => {
-  const confirmStep = (e) => {
-    ///////////////////////////
-    //validators should be here
-    ///////////////////////////
-  };
   const {
     firstName,
     lastName,
@@ -33,9 +27,15 @@ const Step9 = ({ state, setState }) => {
     industries,
     interests,
     saving,
-    education,
-    educationTime
+    education
   } = state.userInfo;
+
+  const confirmStep = (e) => {
+    localStorage.setItem('mydata', JSON.stringify(state.userInfo));
+    const storedData = JSON.parse(localStorage.getItem('mydata'));
+    console.log('storedData:', storedData);
+  };
+
   return (
     <>
       <Container m='auto'>
@@ -86,7 +86,7 @@ const Step9 = ({ state, setState }) => {
                                 { name: 'Contact Number', value: contact },
                                 { name: 'Email', value: email }
                               ].map((item) => (
-                                <Grid item xs={12} md={4}>
+                                <Grid item xs={12} md={4} key={uuidv4()}>
                                   <Typography>
                                     {item.name + ' : ' + item.value}
                                   </Typography>
@@ -147,7 +147,7 @@ const Step9 = ({ state, setState }) => {
                         </Grid>
                         <Grid container spacing={3}>
                           {why.map((item) => (
-                            <Grid item xs={6} md={4}>
+                            <Grid item xs={6} md={4} key={uuidv4()}>
                               <StyledFab variant='extended' col='pur'>
                                 {item}
                               </StyledFab>
@@ -161,7 +161,7 @@ const Step9 = ({ state, setState }) => {
                         </Grid>
                         <Grid container spacing={3}>
                           {industries.map((item) => (
-                            <Grid item xs={6} md={4}>
+                            <Grid item xs={6} md={4} key={uuidv4()}>
                               <StyledFab variant='extended' col='pur'>
                                 {item}
                               </StyledFab>
@@ -175,7 +175,7 @@ const Step9 = ({ state, setState }) => {
                         </Grid>
                         <Grid container spacing={3}>
                           {industries.map((item) => (
-                            <Grid item xs={6} md={4}>
+                            <Grid item xs={6} md={4} key={uuidv4()}>
                               <StyledFab variant='extended' col='pur'>
                                 {item}
                               </StyledFab>
@@ -187,7 +187,7 @@ const Step9 = ({ state, setState }) => {
                         </Grid>
                         <Grid container spacing={3}>
                           {interests.map((item) => (
-                            <Grid item xs={6} md={4}>
+                            <Grid item xs={6} md={4} key={uuidv4()}>
                               <StyledFab variant='extended' col='pur'>
                                 {item}
                               </StyledFab>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import educationList from './education';
+import { v4 as uuidv4 } from 'uuid';
 //////////////////////////////////// Material UI components///////////
 import Box from '@material-ui/core/Box/Box';
 import Typography from '@material-ui/core/Typography/Typography';
@@ -54,7 +55,7 @@ const Step6 = ({ state, setState }) => {
               <Grid item xs={12} md={6}>
                 <Grid container spacing={3}>
                   {educationList.map((educationItem) => (
-                    <Grid item xs={6} md={4}>
+                    <Grid item xs={6} md={4} key={uuidv4()}>
                       <StyledFab
                         variant='extended'
                         col={education === educationItem ? 'pur' : 'white'}
