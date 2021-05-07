@@ -19,7 +19,8 @@ const App = () => {
       relatives: false,
       howLong: 3,
       why: [],
-      industries: []
+      industries: [],
+      interests: []
     }
   });
 

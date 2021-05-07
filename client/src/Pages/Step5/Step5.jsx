@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import availableInd from './industries';
+import availableInt from './interests';
 //////////////////////////////////// Material UI components///////////
 import Box from '@material-ui/core/Box/Box';
 import Typography from '@material-ui/core/Typography/Typography';
@@ -9,19 +9,19 @@ import StyledFab from '../../Components/StyledButton/StyledButton';
 import BorderLinearProgress from '../../Components/ProgressBar/ProgressBar';
 ////////////////////////////////////////////////////////////////////
 
-const Step4 = ({ state, setState }) => {
-  const [industries, setIndustries] = useState(state.userInfo.industries);
+const Step5 = ({ state, setState }) => {
+  const [interests, setInterests] = useState(state.userInfo.interests);
   const check = (item) => {
-    return industries.includes(item);
+    return interests.includes(item);
   };
 
-  const updateInd = (item) => {
+  const updateInt = (item) => {
     if (!check(item)) {
-      const arr = [...industries, item];
-      setIndustries(arr);
+      const arr = [...interests, item];
+      setInterests(arr);
     } else {
-      const arr = industries.filter((ind) => ind !== item);
-      setIndustries(arr);
+      const arr = interests.filter((int) => int !== item);
+      setInterests(arr);
     }
   };
 
@@ -33,7 +33,7 @@ const Step4 = ({ state, setState }) => {
       ...state,
       userInfo: {
         ...state.userInfo,
-        industries: industries
+        interests: interests
       },
       currentStep: state.currentStep + 1,
       progress: state.progress + 11
@@ -60,20 +60,18 @@ const Step4 = ({ state, setState }) => {
           <Grid item xs={12}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <Typography variant='h5'>
-                  What industries would you prefer to work in ?
-                </Typography>
+                <Typography variant='h5'>What are your interests ?</Typography>
               </Grid>
               <Grid item xs={12} md={6}>
                 <Grid container spacing={3}>
-                  {availableInd.map((indus) => (
+                  {availableInt.map((int) => (
                     <Grid item xs={6} md={4}>
                       <StyledFab
                         variant='extended'
-                        col={check(indus) ? 'pur' : 'white'}
-                        onClick={() => updateInd(indus)}
+                        col={check(int) ? 'pur' : 'white'}
+                        onClick={() => updateInt(int)}
                       >
-                        {indus}
+                        {int}
                       </StyledFab>
                     </Grid>
                   ))}
@@ -120,4 +118,4 @@ const Step4 = ({ state, setState }) => {
   );
 };
 
-export default Step4;
+export default Step5;

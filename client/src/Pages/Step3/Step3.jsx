@@ -10,7 +10,7 @@ import BorderLinearProgress from '../../Components/ProgressBar/ProgressBar';
 ////////////////////////////////////////////////////////////////////
 
 const Step3 = ({ state, setState }) => {
-  const [why, setWhy] = useState([]);
+  const [why, setWhy] = useState(state.userInfo.why);
 
   const check = (item) => {
     return why.includes(item);
