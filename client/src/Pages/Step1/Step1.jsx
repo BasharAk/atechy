@@ -225,7 +225,12 @@ const Step1 = ({ state, setState }) => {
                   </Grid>
                 </Grid>
               </Grid>
-
+              <Grid item xs={12}>
+                <br />
+                <br />
+                <br />
+                <br />
+              </Grid>
               <Grid item xs={12}>
                 <StyledFab
                   col='pur'

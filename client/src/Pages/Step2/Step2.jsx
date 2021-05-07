@@ -176,7 +176,12 @@ const Step2 = ({ state, setState }) => {
               </Grid>
             </Grid>
           </Grid>
-
+          <Grid item xs={12}>
+            <br />
+            <br />
+            <br />
+            <br />
+          </Grid>
           <Grid item xs={12} md={6}>
             <Grid container spacing={10}>
               <Grid item xs={6} md={3}>

@@ -17,7 +17,8 @@ const App = () => {
       email: '',
       visited: false,
       relatives: false,
-      howLong: 3
+      howLong: 3,
+      why: []
     }
   });
 
