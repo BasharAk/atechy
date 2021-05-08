@@ -85,5 +85,12 @@
     "6 to 12 months",
     "After 1 year",
     "I'm not sure"
+  ],
+  "howLongList": [
+    "Up To 3 months",
+    "3 To 6 months",
+    "6 To 12 months",
+    "+12 months",
+    "+3 years"
   ]
 }

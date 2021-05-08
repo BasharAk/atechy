@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 const StyledFab = styled(Fab)`
   min-width: 120px;
+  margin: 10px 15px 10px 15px;
+  padding: 5px 30px 5px 30px;
   ${({ col }) =>
     col === 'pur' &&
     `

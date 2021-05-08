@@ -15,13 +15,16 @@ const switchPages = (state, setState, fetchedData) => {
     interests,
     savings,
     educationList,
-    educationList2
+    educationList2,
+    howLongList
   } = fetchedData;
   switch (state.currentStep) {
     case 1:
       return <Step1 state={state} setState={setState} />;
     case 2:
-      return <Step2 state={state} setState={setState} />;
+      return (
+        <Step2 state={state} setState={setState} howLongList={howLongList} />
+      );
     case 3:
       return <Step3 state={state} setState={setState} whyList={whyList} />;
     case 4:
@@ -29,7 +32,9 @@ const switchPages = (state, setState, fetchedData) => {
         <Step4 state={state} setState={setState} availableInd={industries} />
       );
     case 5:
-      return <Step5 state={state} setState={setState} availableInt={interests} />;
+      return (
+        <Step5 state={state} setState={setState} availableInt={interests} />
+      );
     case 6:
       return <Step6 state={state} setState={setState} savings={savings} />;
     case 7:

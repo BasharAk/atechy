@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import switchPages from './utils/switchPages';
 import ThemeProvider from './Components/ThemeProvider/ThemeProvider';
 import axios from 'axios';
+import MainPageContainer from './Pages/MainPageContainer/MainPageContainer';
 
 const App = () => {
   const [state, setState] = useState({
@@ -40,6 +41,7 @@ const App = () => {
     const educationList2 = await axios.get(
       'http://localhost:3001/educationTimeList'
     );
+    const howLongList = await axios.get('http://localhost:3001/howLongList');
 
     setFetchedData({
       whyList: whyList.data,
@@ -47,13 +49,21 @@ const App = () => {
       interests: interests.data,
       savings: savings.data,
       educationList: educationList.data,
-      educationList2: educationList2.data
+      educationList2: educationList2.data,
+      howLongList: howLongList.data
     });
   }, []);
 
   return (
     <>
-      <ThemeProvider>{switchPages(state, setState, fetchedData)}</ThemeProvider>
+      <ThemeProvider>
+        <MainPageContainer
+          progress={state.progress}
+          currentStep={state.currentStep}
+        >
+          {switchPages(state, setState, fetchedData)}
+        </MainPageContainer>
+      </ThemeProvider>
     </>
   );
 };
