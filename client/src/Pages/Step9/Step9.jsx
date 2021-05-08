@@ -5,9 +5,7 @@ import Typography from '@material-ui/core/Typography/Typography';
 import Grid from '@material-ui/core/Grid/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Container from '@material-ui/core/Container/Container';
 import StyledFab from '../../Components/StyledButton/StyledButton';
-import BorderLinearProgress from '../../Components/ProgressBar/ProgressBar';
 ////////////////////////////////////////////////////////////////////
 
 const Step9 = ({ state, setState }) => {
@@ -92,42 +90,44 @@ const Step9 = ({ state, setState }) => {
               <StyledFab variant='extended' col='pur'>
                 {howLong}
               </StyledFab>
-              <Typography>Why do you want to come to Dubai ?</Typography>
-              <Box>
-                {why.map((item) => (
-                  <StyledFab variant='extended' col='pur' key={uuidv4()}>
-                    {item}
-                  </StyledFab>
-                ))}
-              </Box>
-              <Typography>
-                What industries would you prefer to work in?
-              </Typography>
-              <Box>
-                {industries.map((item) => (
-                  <StyledFab variant='extended' col='pur' key={uuidv4()}>
-                    {item}
-                  </StyledFab>
-                ))}
-              </Box>
-              <Typography>
-                What industries would you prefer to work in?
-              </Typography>
-              <Box>
-                {industries.map((item) => (
-                  <StyledFab variant='extended' col='pur' key={uuidv4()}>
-                    {item}
-                  </StyledFab>
-                ))}
-              </Box>
-              <Typography>What are your interests?</Typography>
-              <Box>
-                {interests.map((item) => (
-                  <StyledFab variant='extended' col='pur' key={uuidv4()}>
-                    {item}
-                  </StyledFab>
-                ))}
-              </Box>
+              {why.length > 0 ? (
+                <>
+                  <Typography>Why do you want to come to Dubai ?</Typography>
+                  <Box>
+                    {why.map((item) => (
+                      <StyledFab variant='extended' col='pur' key={uuidv4()}>
+                        {item}
+                      </StyledFab>
+                    ))}
+                  </Box>
+                </>
+              ) : null}
+              {industries.length > 0 ? (
+                <>
+                  <Typography>
+                    What industries would you prefer to work in?
+                  </Typography>
+                  <Box>
+                    {industries.map((item) => (
+                      <StyledFab variant='extended' col='pur' key={uuidv4()}>
+                        {item}
+                      </StyledFab>
+                    ))}
+                  </Box>
+                </>
+              ) : null}
+              {interests.length > 0 ? (
+                <>
+                  <Typography>What are your interests?</Typography>
+                  <Box>
+                    {interests.map((item) => (
+                      <StyledFab variant='extended' col='pur' key={uuidv4()}>
+                        {item}
+                      </StyledFab>
+                    ))}
+                  </Box>
+                </>
+              ) : null}
               <Typography>What is your level of education?</Typography>
               <StyledFab variant='extended' col='pur'>
                 {education}

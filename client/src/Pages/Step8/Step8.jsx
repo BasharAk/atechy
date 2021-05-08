@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 //////////////////////////////////// Material UI components///////////
-import Box from '@material-ui/core/Box/Box';
 import Typography from '@material-ui/core/Typography/Typography';
 import Grid from '@material-ui/core/Grid/Grid';
 import StyledFab from '../../Components/StyledButton/StyledButton';

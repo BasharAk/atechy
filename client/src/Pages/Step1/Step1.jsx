@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import isEmail from 'validator/lib/isEmail';
+import isMobilePhone from 'validator/lib/isMobilePhone';
 //////////////////////////////////// Material UI components///////////
 import Select from '@material-ui/core/Select/Select';
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
@@ -22,27 +24,58 @@ const Step1 = ({ state, setState }) => {
   const [dob, setDOB] = useState(state.userInfo.dob);
   const [contact, setContact] = useState(state.userInfo.contact);
   const [email, setEmail] = useState(state.userInfo.email);
+  const [err, setErr] = useState('');
 
   const confirmStep = (e) => {
-    ///////////////////////////
-    //validators should be here
-    ///////////////////////////
-    setState({
-      ...state,
-      userInfo: {
-        ...state.userInfo,
-        firstName,
-        lastName,
-        nationality,
-        country,
-        gender,
-        dob,
-        contact,
-        email
-      },
-      currentStep: state.currentStep + 1,
-      progress: state.progress + 11
-    });
+    if (!firstName) {
+      setErr('Please enter your first name');
+      return;
+    }
+    if (!lastName) {
+      setErr('Please enter your last name');
+      return;
+    }
+    if (!nationality) {
+      setErr('Please select your nationality');
+      return;
+    }
+    if (!gender) {
+      setErr('Please select your gender');
+      return;
+    }
+    if (!country) {
+      setErr('Please select your country');
+      return;
+    }
+    if (!dob) {
+      setErr('Please enter your date of birth');
+      return;
+    }
+    if (!isMobilePhone(contact)) {
+      setErr('Please enter a valid phone number');
+      return;
+    }
+    if (!isEmail(email)) {
+      setErr('Please enter valid Email address');
+      return;
+    } else {
+      setState({
+        ...state,
+        currentStep: state.currentStep + 1,
+        progress: state.progress + 11,
+        userInfo: {
+          ...state.userInfo,
+          firstName,
+          lastName,
+          nationality,
+          country,
+          gender,
+          dob,
+          contact,
+          email
+        }
+      });
+    }
   };
 
   return (
@@ -138,9 +171,11 @@ const Step1 = ({ state, setState }) => {
               value={nationality}
               onChange={(e) => setNationality(e.target.value)}
             >
-              <MenuItem value={'usa'}>USA</MenuItem>
-              <MenuItem value={'usa'}>UK</MenuItem>
-              <MenuItem value={'uae'}>UAE</MenuItem>
+              <MenuItem value={'United States'}>United States</MenuItem>
+              <MenuItem value={'United Kingdom'}>United Kingdom</MenuItem>
+              <MenuItem value={'United Arab Emirates'}>
+                United Arab Emirates
+              </MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -180,6 +215,7 @@ const Step1 = ({ state, setState }) => {
 
         <Grid item xs={12} md={6}>
           <TextField
+            type='email'
             fullWidth
             id='email'
             label='Email address:'
@@ -188,6 +224,12 @@ const Step1 = ({ state, setState }) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Grid>
+
+        {err ? (
+          <Grid item xs={12}>
+            <Typography color='error'>{err}</Typography>
+          </Grid>
+        ) : null}
 
         <Grid item xs={12}>
           <StyledFab

@@ -19,39 +19,42 @@ const App = () => {
       email: '',
       visited: false,
       relatives: false,
-      howLong: 3,
+      howLong: 'Up To 3 months',
       why: [],
       industries: [],
       interests: [],
-      saving: '',
-      education: '',
-      educationTime: ''
+      saving: 'No savings',
+      education: 'High school or less',
+      educationTime: 'Right now'
     }
   });
   const [fetchedData, setFetchedData] = useState('');
 
-  useEffect(async () => {
-    const whyList = await axios.get('http://localhost:3001/whyList');
-    const industries = await axios.get('http://localhost:3001/industries');
-    const interests = await axios.get('http://localhost:3001/interests');
-    const savings = await axios.get('http://localhost:3001/savings');
-    const educationList = await axios.get(
-      'http://localhost:3001/educationList'
-    );
-    const educationList2 = await axios.get(
-      'http://localhost:3001/educationTimeList'
-    );
-    const howLongList = await axios.get('http://localhost:3001/howLongList');
+  useEffect(() => {
+    const fetchData = async () => {
+      const whyList = await axios.get('http://localhost:3001/whyList');
+      const industries = await axios.get('http://localhost:3001/industries');
+      const interests = await axios.get('http://localhost:3001/interests');
+      const savings = await axios.get('http://localhost:3001/savings');
+      const educationList = await axios.get(
+        'http://localhost:3001/educationList'
+      );
+      const educationList2 = await axios.get(
+        'http://localhost:3001/educationTimeList'
+      );
+      const howLongList = await axios.get('http://localhost:3001/howLongList');
 
-    setFetchedData({
-      whyList: whyList.data,
-      industries: industries.data,
-      interests: interests.data,
-      savings: savings.data,
-      educationList: educationList.data,
-      educationList2: educationList2.data,
-      howLongList: howLongList.data
-    });
+      setFetchedData({
+        whyList: whyList.data,
+        industries: industries.data,
+        interests: interests.data,
+        savings: savings.data,
+        educationList: educationList.data,
+        educationList2: educationList2.data,
+        howLongList: howLongList.data
+      });
+    };
+    fetchData();
   }, []);
 
   return (
