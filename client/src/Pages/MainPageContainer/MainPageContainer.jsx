@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid/Grid';
 import Typography from '@material-ui/core/Typography/Typography';
 import BorderLinearProgress from '../../Components/ProgressBar/ProgressBar';
 import { makeStyles } from '@material-ui/core/styles';
+import MainPageCover from './MainPageCover';
 
 const useStyles = makeStyles({
   root: {
@@ -14,17 +15,13 @@ const MainPageContainer = ({ children, progress, currentStep }) => {
   const classes = useStyles();
 
   return (
-<>
+    <>
       <Grid container>
         {currentStep === 1 ? (
           <Grid item xs={12} md={6}>
-            <Box
-              display={{ xs: 'none', md: 'block' }}
-              style={{
-                backgroundColor: 'purple',
-                height: '100vh'
-              }}
-            />
+            <Box display={{ xs: 'none', md: 'block' }}>
+              <MainPageCover />
+            </Box>
           </Grid>
         ) : null}
         <Grid item xs={12} md={currentStep === 1 ? 6 : 12}>
