@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Box from '@material-ui/core/Box/Box';
+import Box from '../../Components/Box/Box';
 
 const Image = styled.img`
   width: 100%;

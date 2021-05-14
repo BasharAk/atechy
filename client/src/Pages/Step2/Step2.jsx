@@ -2,9 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Typography from '../../Components/Typography/Typography';
 import StyledButton from '../../Components/StyledButton/StyledButton';
-//////////////////////////////////// Material UI components///////////
-import Grid from '@material-ui/core/Grid/Grid';
-////////////////////////////////////////////////////////////////////
+import Box from '../../Components/Box/Box';
 
 const Step2 = ({ state, setState, howLongList }) => {
   const [visited, setVisited] = useState(state.userInfo.visited);
@@ -12,9 +10,6 @@ const Step2 = ({ state, setState, howLongList }) => {
   const [howLong, setHowLong] = useState(state.userInfo.howLong);
 
   const confirmStep = (e) => {
-    ///////////////////////////
-    //validators should be here
-    ///////////////////////////
     setState({
       ...state,
       userInfo: {
@@ -30,78 +25,76 @@ const Step2 = ({ state, setState, howLongList }) => {
 
   return (
     <>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Typography>Have you ever visited dubai</Typography>
-        </Grid>
+      <Box p xs={12}>
+        <Typography>Have you ever visited dubai</Typography>
+      </Box>
 
-        <Grid item xs={12}>
+      <Box p xs={12}>
+        <StyledButton
+          col={visited ? 'white' : 'pur'}
+          onClick={() => setVisited(false)}
+        >
+          no
+        </StyledButton>
+        <StyledButton
+          col={visited ? 'pur' : 'white'}
+          onClick={() => setVisited(true)}
+        >
+          yes
+        </StyledButton>
+      </Box>
+
+      <Box p xs={12}>
+        <Typography>Do you have any friends or family in Dubai?</Typography>
+      </Box>
+
+      <Box p xs={12}>
+        <StyledButton
+          col={relatives ? 'white' : 'pur'}
+          onClick={() => setRelatives(false)}
+        >
+          no
+        </StyledButton>
+        <StyledButton
+          col={relatives ? 'pur' : 'white'}
+          onClick={() => setRelatives(true)}
+        >
+          yes
+        </StyledButton>
+      </Box>
+
+      <Box p xs={12}>
+        <Typography>How long do you want to stay in Dubai ?</Typography>
+      </Box>
+
+      <Box p xs={12}>
+        {howLongList.map((long) => (
           <StyledButton
-            col={visited ? 'white' : 'pur'}
-            onClick={() => setVisited(false)}
+            key={uuidv4()}
+            col={long === howLong ? 'pur' : 'white'}
+            onClick={() => setHowLong(long)}
           >
-            no
+            {long}
           </StyledButton>
-          <StyledButton
-            col={visited ? 'pur' : 'white'}
-            onClick={() => setVisited(true)}
-          >
-            yes
-          </StyledButton>
-        </Grid>
+        ))}
+      </Box>
 
-        <Grid item xs={12}>
-          <Typography>Do you have any friends or family in Dubai?</Typography>
-        </Grid>
-
-        <Grid item xs={12}>
-          <StyledButton
-            col={relatives ? 'white' : 'pur'}
-            onClick={() => setRelatives(false)}
-          >
-            no
-          </StyledButton>
-          <StyledButton
-            col={relatives ? 'pur' : 'white'}
-            onClick={() => setRelatives(true)}
-          >
-            yes
-          </StyledButton>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Typography>How long do you want to stay in Dubai ?</Typography>
-        </Grid>
-
-        <Grid item xs={12}>
-          {howLongList.map((long) => (
-            <StyledButton
-              key={uuidv4()}
-              col={long === howLong ? 'pur' : 'white'}
-              onClick={() => setHowLong(long)}
-            >
-              {long}
-            </StyledButton>
-          ))}
-        </Grid>
-
-        <Grid item xs={12}>
-          <StyledButton
-            onClick={() =>
-              setState({
-                ...state,
-                currentStep: state.currentStep - 1,
-                progress: state.progress - 11
-              })
-            }
-          >
-            Back
-          </StyledButton>
-          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
-            Next
-          </StyledButton>
-        </Grid>
-      </Grid>
+      <Box p xs={12}>
+        <StyledButton
+          onClick={() =>
+            setState({
+              ...state,
+              currentStep: state.currentStep - 1,
+              progress: state.progress - 11
+            })
+          }
+        >
+          Back
+        </StyledButton>
+        <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
+          Next
+        </StyledButton>
+      </Box>
     </>
   );
 };

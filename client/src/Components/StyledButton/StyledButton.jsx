@@ -4,6 +4,7 @@ const StyledButton = styled.button`
   display: inline-block;
   min-width: 6rem;
   height: 3rem;
+  margin: 0rem 1rem 0.5rem 0;
   padding: 0.5rem 1.5rem;
   border: none;
   border-radius: 1.5rem;

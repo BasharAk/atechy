@@ -6,10 +6,7 @@ import StyledButton from '../../Components/StyledButton/StyledButton';
 import Input from '../../Components/Input/Input';
 import DropDown from '../../Components/Input/DropDown';
 import CheckBox from '../../Components/Input/CheckBox';
-
-//////////////////////////////////// Material UI components///////////
-import Grid from '@material-ui/core/Grid/Grid';
-////////////////////////////////////////////////////////////////////
+import Box from '../../Components/Box/Box';
 
 const Step1 = ({ state, setState }) => {
   const [firstName, setfirstName] = useState(state.userInfo.firstName);
@@ -75,82 +72,80 @@ const Step1 = ({ state, setState }) => {
   };
 
   return (
-    <>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Typography size={1.375}>Apply now to work in Dubai</Typography>
-        </Grid>
+    <Box p flex>
+      <Box p xs={12}>
+        <Typography size={1.375}>Apply now to work in Dubai</Typography>
+      </Box>
 
-        <Grid item xs={12} md={6}>
-          <Input setValue={setfirstName} value={firstName} label='First name' />
-        </Grid>
+      <Box p xs={12} md={6}>
+        <Input setValue={setfirstName} value={firstName} label='First name' />
+      </Box>
 
-        <Grid item xs={12} md={6}>
-          <Input setValue={setLastName} value={lastName} label='Last name' />
-        </Grid>
+      <Box p xs={12} md={6}>
+        <Input setValue={setLastName} value={lastName} label='Last name' />
+      </Box>
 
-        <Grid item xs={12} md={6}>
-          <Input
-            setValue={setDOB}
-            value={dob}
-            type='date'
-            label='Date of birth'
-          />
-        </Grid>
+      <Box p xs={12} md={6}>
+        <Input
+          setValue={setDOB}
+          value={dob}
+          type='date'
+          label='Date of birth'
+        />
+      </Box>
 
-        <Grid item xs={12} md={6}>
-          <Typography size={0.875}>Gender</Typography>
-          <CheckBox
-            value={gender}
-            setValue={setGender}
-            options={['Male', 'Female', 'Other']}
-            label='Gender'
-          />
-        </Grid>
+      <Box p xs={12} md={6}>
+        <Typography size={0.875}>Gender</Typography>
+        <CheckBox
+          value={gender}
+          setValue={setGender}
+          options={['Male', 'Female', 'Other']}
+          label='Gender'
+        />
+      </Box>
 
-        <Grid item xs={12} md={6}>
-          <DropDown
-            setValue={setNationality}
-            value={nationality}
-            options={['United States', 'United Arab Emirates', 'Germany']}
-            label='Nationality'
-          />
-        </Grid>
+      <Box p xs={12} md={6}>
+        <DropDown
+          setValue={setNationality}
+          value={nationality}
+          options={['United States', 'United Arab Emirates', 'Germany']}
+          label='Nationality'
+        />
+      </Box>
 
-        <Grid item xs={12} md={6}>
-          <DropDown
-            value={country}
-            setValue={setCountry}
-            options={['United States', 'United Arab Emirates', 'Germany']}
-            label='Country'
-          />
-        </Grid>
+      <Box p xs={12} md={6}>
+        <DropDown
+          value={country}
+          setValue={setCountry}
+          options={['United States', 'United Arab Emirates', 'Germany']}
+          label='Country'
+        />
+      </Box>
 
-        <Grid item xs={12}>
-          <Typography>How we can contact you?</Typography>
-        </Grid>
+      <Box p xs={12}>
+        <Typography>How we can contact you?</Typography>
+      </Box>
 
-        <Grid item xs={12} md={6}>
-          <Input setValue={setContact} value={contact} label='Contact number' />
-        </Grid>
+      <Box p xs={12} md={6}>
+        <Input setValue={setContact} value={contact} label='Contact number' />
+      </Box>
 
-        <Grid item xs={12} md={6}>
-          <Input setValue={setEmail} value={email} label='Email address' />
-        </Grid>
+      <Box p xs={12} md={6}>
+        <Input setValue={setEmail} value={email} label='Email address' />
+      </Box>
 
-        {err ? (
-          <Grid item xs={12}>
-            <Typography color='red'>{err}</Typography>
-          </Grid>
-        ) : null}
+      {err ? (
+        <Box p xs={12}>
+          <Typography color='red'>{err}</Typography>
+        </Box>
+      ) : null}
 
-        <Grid item xs={12}>
-          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
-            Apply Now
-          </StyledButton>
-        </Grid>
-      </Grid>
-    </>
+      <Box p xs={12}>
+        <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
+          Apply Now
+        </StyledButton>
+      </Box>
+    </Box>
   );
 };
 

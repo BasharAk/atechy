@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Typography from '../../Components/Typography/Typography';
 import StyledButton from '../../Components/StyledButton/StyledButton';
-//////////////////////////////////// Material UI components///////////
-import Grid from '@material-ui/core/Grid/Grid';
-import Box from '@material-ui/core/Box/Box';
-////////////////////////////////////////////////////////////////////
+import Box from '../../Components/Box/Box';
 
 const Step4 = ({ state, setState, availableInd }) => {
   const [industries, setIndustries] = useState(state.userInfo.industries);
@@ -40,47 +37,45 @@ const Step4 = ({ state, setState, availableInd }) => {
 
   return (
     <>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Typography>What industries would you prefer to work in ?</Typography>
-        </Grid>
+      <Box p xs={12}>
+        <Typography>What industries would you prefer to work in ?</Typography>
+      </Box>
 
-        <Grid item xs={12}>
-          <Box
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap'
-            }}
-          >
-            {availableInd.map((indus) => (
-              <StyledButton
-                key={uuidv4()}
-                col={check(indus) ? 'pur' : 'white'}
-                onClick={() => updateInd(indus)}
-              >
-                {indus}
-              </StyledButton>
-            ))}
-          </Box>
-        </Grid>
+      <Box p xs={12}>
+        <Box
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap'
+          }}
+        >
+          {availableInd.map((indus) => (
+            <StyledButton
+              key={uuidv4()}
+              col={check(indus) ? 'pur' : 'white'}
+              onClick={() => updateInd(indus)}
+            >
+              {indus}
+            </StyledButton>
+          ))}
+        </Box>
+      </Box>
 
-        <Grid item xs={12}>
-          <StyledButton
-            onClick={() =>
-              setState({
-                ...state,
-                currentStep: state.currentStep - 1,
-                progress: state.progress - 11
-              })
-            }
-          >
-            Back
-          </StyledButton>
-          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
-            Next
-          </StyledButton>
-        </Grid>
-      </Grid>
+      <Box p xs={12}>
+        <StyledButton
+          onClick={() =>
+            setState({
+              ...state,
+              currentStep: state.currentStep - 1,
+              progress: state.progress - 11
+            })
+          }
+        >
+          Back
+        </StyledButton>
+        <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
+          Next
+        </StyledButton>
+      </Box>
     </>
   );
 };

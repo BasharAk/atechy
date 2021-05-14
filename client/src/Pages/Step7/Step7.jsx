@@ -2,17 +2,12 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Typography from '../../Components/Typography/Typography';
 import StyledButton from '../../Components/StyledButton/StyledButton';
-//////////////////////////////////// Material UI components///////////
-import Grid from '@material-ui/core/Grid/Grid';
-////////////////////////////////////////////////////////////////////
+import Box from '../../Components/Box/Box';
 
 const Step6 = ({ state, setState, educationList }) => {
   const [education, setEducation] = useState(state.userInfo.education);
 
   const confirmStep = (e) => {
-    ///////////////////////////
-    //validators should be here
-    ///////////////////////////
     setState({
       ...state,
       userInfo: {
@@ -26,40 +21,38 @@ const Step6 = ({ state, setState, educationList }) => {
 
   return (
     <>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Typography>What is your level of education ?</Typography>
-        </Grid>
+      <Box p xs={12}>
+        <Typography>What is your level of education ?</Typography>
+      </Box>
 
-        <Grid item xs={12}>
-          {educationList.map((educationItem) => (
-            <StyledButton
-              key={uuidv4()}
-              col={education === educationItem ? 'pur' : 'white'}
-              onClick={() => setEducation(educationItem)}
-            >
-              {educationItem}
-            </StyledButton>
-          ))}
-        </Grid>
-
-        <Grid item xs={12}>
+      <Box p xs={12}>
+        {educationList.map((educationItem) => (
           <StyledButton
-            onClick={() =>
-              setState({
-                ...state,
-                currentStep: state.currentStep - 1,
-                progress: state.progress - 11
-              })
-            }
+            key={uuidv4()}
+            col={education === educationItem ? 'pur' : 'white'}
+            onClick={() => setEducation(educationItem)}
           >
-            Back
+            {educationItem}
           </StyledButton>
-          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
-            Next
-          </StyledButton>
-        </Grid>
-      </Grid>
+        ))}
+      </Box>
+
+      <Box p xs={12}>
+        <StyledButton
+          onClick={() =>
+            setState({
+              ...state,
+              currentStep: state.currentStep - 1,
+              progress: state.progress - 11
+            })
+          }
+        >
+          Back
+        </StyledButton>
+        <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
+          Next
+        </StyledButton>
+      </Box>
     </>
   );
 };

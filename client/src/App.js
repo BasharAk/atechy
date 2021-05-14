@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import switchPages from './utils/switchPages';
-import ThemeProvider from './Components/ThemeProvider/ThemeProvider';
 import axios from 'axios';
 import MainPageContainer from './Pages/MainPageContainer/MainPageContainer';
 
@@ -59,14 +58,12 @@ const App = () => {
 
   return (
     <>
-      <ThemeProvider>
-        <MainPageContainer
-          progress={state.progress}
-          currentStep={state.currentStep}
-        >
-          {switchPages(state, setState, fetchedData)}
-        </MainPageContainer>
-      </ThemeProvider>
+      <MainPageContainer
+        progress={state.progress}
+        currentStep={state.currentStep}
+      >
+        {switchPages(state, setState, fetchedData)}
+      </MainPageContainer>
     </>
   );
 };
