@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Typography from '../../Components/Typography/Typography';
+import StyledButton from '../../Components/StyledButton/StyledButton';
 //////////////////////////////////// Material UI components///////////
-import Typography from '@material-ui/core/Typography/Typography';
 import Grid from '@material-ui/core/Grid/Grid';
-import StyledFab from '../../Components/StyledButton/StyledButton';
 ////////////////////////////////////////////////////////////////////
 
 const Step5 = ({ state, setState, availableInt }) => {
@@ -41,25 +41,23 @@ const Step5 = ({ state, setState, availableInt }) => {
     <>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant='h5'>What are your interests ?</Typography>
+          <Typography>What are your interests ?</Typography>
         </Grid>
 
         <Grid item xs={12}>
           {availableInt.map((int) => (
-            <StyledFab
+            <StyledButton
               key={uuidv4()}
-              variant='extended'
               col={check(int) ? 'pur' : 'white'}
               onClick={() => updateInt(int)}
             >
               {int}
-            </StyledFab>
+            </StyledButton>
           ))}
         </Grid>
 
         <Grid item xs={12}>
-          <StyledFab
-            variant='extended'
+          <StyledButton
             onClick={() =>
               setState({
                 ...state,
@@ -69,15 +67,11 @@ const Step5 = ({ state, setState, availableInt }) => {
             }
           >
             Back
-          </StyledFab>
+          </StyledButton>
 
-          <StyledFab
-            col='pur'
-            onClick={(e) => confirmStep(e)}
-            variant='extended'
-          >
+          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
             Next
-          </StyledFab>
+          </StyledButton>
         </Grid>
       </Grid>
     </>

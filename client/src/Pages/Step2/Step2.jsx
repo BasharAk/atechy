@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Typography from '../../Components/Typography/Typography';
+import StyledButton from '../../Components/StyledButton/StyledButton';
 //////////////////////////////////// Material UI components///////////
-import Typography from '@material-ui/core/Typography/Typography';
 import Grid from '@material-ui/core/Grid/Grid';
-import StyledFab from '../../Components/StyledButton/StyledButton';
 ////////////////////////////////////////////////////////////////////
 
 const Step2 = ({ state, setState, howLongList }) => {
@@ -32,71 +32,61 @@ const Step2 = ({ state, setState, howLongList }) => {
     <>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant='h5'>Have you ever visited dubai</Typography>
+          <Typography>Have you ever visited dubai</Typography>
         </Grid>
 
         <Grid item xs={12}>
-          <StyledFab
-            variant='extended'
+          <StyledButton
             col={visited ? 'white' : 'pur'}
             onClick={() => setVisited(false)}
           >
             no
-          </StyledFab>
-          <StyledFab
-            variant='extended'
+          </StyledButton>
+          <StyledButton
             col={visited ? 'pur' : 'white'}
             onClick={() => setVisited(true)}
           >
             yes
-          </StyledFab>
+          </StyledButton>
         </Grid>
 
         <Grid item xs={12}>
-          <Typography variant='h5'>
-            Do you have any friends or family in Dubai?
-          </Typography>
+          <Typography>Do you have any friends or family in Dubai?</Typography>
         </Grid>
 
         <Grid item xs={12}>
-          <StyledFab
-            variant='extended'
+          <StyledButton
             col={relatives ? 'white' : 'pur'}
             onClick={() => setRelatives(false)}
           >
             no
-          </StyledFab>
-          <StyledFab
-            variant='extended'
+          </StyledButton>
+          <StyledButton
             col={relatives ? 'pur' : 'white'}
             onClick={() => setRelatives(true)}
           >
             yes
-          </StyledFab>
+          </StyledButton>
         </Grid>
 
         <Grid item xs={12}>
-          <Typography variant='h5'>
-            How long do you want to stay in Dubai ?
-          </Typography>
+          <Typography>How long do you want to stay in Dubai ?</Typography>
         </Grid>
 
         <Grid item xs={12}>
           {howLongList.map((long) => (
-            <StyledFab
+            <StyledButton
               key={uuidv4()}
-              variant='extended'
               col={long === howLong ? 'pur' : 'white'}
               onClick={() => setHowLong(long)}
             >
               {long}
-            </StyledFab>
+            </StyledButton>
           ))}
         </Grid>
 
         <Grid item xs={12}>
-          <StyledFab
-            variant='extended'
+          <StyledButton
             onClick={() =>
               setState({
                 ...state,
@@ -106,14 +96,10 @@ const Step2 = ({ state, setState, howLongList }) => {
             }
           >
             Back
-          </StyledFab>
-          <StyledFab
-            col='pur'
-            onClick={(e) => confirmStep(e)}
-            variant='extended'
-          >
+          </StyledButton>
+          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
             Next
-          </StyledFab>
+          </StyledButton>
         </Grid>
       </Grid>
     </>

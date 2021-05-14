@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Typography from '../../Components/Typography/Typography';
+import StyledButton from '../../Components/StyledButton/StyledButton';
 //////////////////////////////////// Material UI components///////////
-import Typography from '@material-ui/core/Typography/Typography';
 import Grid from '@material-ui/core/Grid/Grid';
 import Box from '@material-ui/core/Box/Box';
-import StyledFab from '../../Components/StyledButton/StyledButton';
 ////////////////////////////////////////////////////////////////////
 
 const Step4 = ({ state, setState, availableInd }) => {
@@ -42,9 +42,7 @@ const Step4 = ({ state, setState, availableInd }) => {
     <>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant='h5'>
-            What industries would you prefer to work in ?
-          </Typography>
+          <Typography>What industries would you prefer to work in ?</Typography>
         </Grid>
 
         <Grid item xs={12}>
@@ -55,21 +53,19 @@ const Step4 = ({ state, setState, availableInd }) => {
             }}
           >
             {availableInd.map((indus) => (
-              <StyledFab
+              <StyledButton
                 key={uuidv4()}
-                variant='extended'
                 col={check(indus) ? 'pur' : 'white'}
                 onClick={() => updateInd(indus)}
               >
                 {indus}
-              </StyledFab>
+              </StyledButton>
             ))}
           </Box>
         </Grid>
 
         <Grid item xs={12}>
-          <StyledFab
-            variant='extended'
+          <StyledButton
             onClick={() =>
               setState({
                 ...state,
@@ -79,14 +75,10 @@ const Step4 = ({ state, setState, availableInd }) => {
             }
           >
             Back
-          </StyledFab>
-          <StyledFab
-            col='pur'
-            onClick={(e) => confirmStep(e)}
-            variant='extended'
-          >
+          </StyledButton>
+          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
             Next
-          </StyledFab>
+          </StyledButton>
         </Grid>
       </Grid>
     </>

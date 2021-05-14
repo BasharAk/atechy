@@ -1,19 +1,12 @@
+import Typography from '../../Components/Typography/Typography';
+import ProgressBar from '../../Components/ProgressBar/ProgressBar';
+import MainPageCover from './MainPageCover';
+//////////////////////////////////// Material UI components///////////
 import Box from '@material-ui/core/Box/Box';
 import Grid from '@material-ui/core/Grid/Grid';
-import Typography from '@material-ui/core/Typography/Typography';
-import BorderLinearProgress from '../../Components/ProgressBar/ProgressBar';
-import { makeStyles } from '@material-ui/core/styles';
-import MainPageCover from './MainPageCover';
-
-const useStyles = makeStyles({
-  root: {
-    fontWeight: 'bold'
-  }
-});
+////////////////////////////////////////////////////////////////////
 
 const MainPageContainer = ({ children, progress, currentStep }) => {
-  const classes = useStyles();
-
   return (
     <>
       <Grid container>
@@ -28,16 +21,13 @@ const MainPageContainer = ({ children, progress, currentStep }) => {
           <Box p={3}>
             <Grid container>
               <Grid item xs={12} md={6}>
-                <Typography variant='h3' className={classes.root}>
+                <Typography size='4' weight='Bold'>
                   digg
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6}>
                 <Box py={3} display={`${progress > 15 ? 'block' : 'none'}`}>
-                  <BorderLinearProgress
-                    variant='determinate'
-                    value={progress}
-                  />
+                  <ProgressBar value={progress} />
                 </Box>
               </Grid>
               <Grid item xs={12}>

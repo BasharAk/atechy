@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Typography from '../../Components/Typography/Typography';
+import StyledButton from '../../Components/StyledButton/StyledButton';
 //////////////////////////////////// Material UI components///////////
-import Typography from '@material-ui/core/Typography/Typography';
 import Grid from '@material-ui/core/Grid/Grid';
-import StyledFab from '../../Components/StyledButton/StyledButton';
 ////////////////////////////////////////////////////////////////////
 
 const Step6 = ({ state, setState, savings }) => {
@@ -28,27 +28,23 @@ const Step6 = ({ state, setState, savings }) => {
     <>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant='h5'>
-            Do you have any financial savings ?
-          </Typography>
+          <Typography>Do you have any financial savings ?</Typography>
         </Grid>
 
         <Grid item xs={12}>
           {savings.map((savingsItem) => (
-            <StyledFab
+            <StyledButton
               key={uuidv4()}
-              variant='extended'
               col={saving === savingsItem ? 'pur' : 'white'}
               onClick={() => setSaving(savingsItem)}
             >
               {savingsItem}
-            </StyledFab>
+            </StyledButton>
           ))}
         </Grid>
 
         <Grid item xs={12}>
-          <StyledFab
-            variant='extended'
+          <StyledButton
             onClick={() =>
               setState({
                 ...state,
@@ -58,14 +54,10 @@ const Step6 = ({ state, setState, savings }) => {
             }
           >
             Back
-          </StyledFab>
-          <StyledFab
-            col='pur'
-            onClick={(e) => confirmStep(e)}
-            variant='extended'
-          >
+          </StyledButton>
+          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
             Next
-          </StyledFab>
+          </StyledButton>
         </Grid>
       </Grid>
     </>

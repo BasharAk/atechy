@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import Typography from '../../Components/Typography/Typography';
+import StyledButton from '../../Components/StyledButton/StyledButton';
 //////////////////////////////////// Material UI components///////////
-import Typography from '@material-ui/core/Typography/Typography';
 import Grid from '@material-ui/core/Grid/Grid';
-import StyledFab from '../../Components/StyledButton/StyledButton';
-
 ////////////////////////////////////////////////////////////////////
 
 const Step3 = ({ state, setState, whyList }) => {
@@ -43,27 +42,23 @@ const Step3 = ({ state, setState, whyList }) => {
     <>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant='h5'>
-            Why do you want to come to Dubai?
-          </Typography>
+          <Typography>Why do you want to come to Dubai?</Typography>
         </Grid>
 
         <Grid item xs={12}>
           {whyList.map((why) => (
-            <StyledFab
+            <StyledButton
               key={uuidv4()}
-              variant='extended'
               col={check(why) ? 'pur' : 'white'}
               onClick={() => updateWhy(why)}
             >
               {why}
-            </StyledFab>
+            </StyledButton>
           ))}
         </Grid>
 
         <Grid item xs={12}>
-          <StyledFab
-            variant='extended'
+          <StyledButton
             onClick={() =>
               setState({
                 ...state,
@@ -73,14 +68,10 @@ const Step3 = ({ state, setState, whyList }) => {
             }
           >
             Back
-          </StyledFab>
-          <StyledFab
-            col='pur'
-            onClick={(e) => confirmStep(e)}
-            variant='extended'
-          >
+          </StyledButton>
+          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
             Next
-          </StyledFab>
+          </StyledButton>
         </Grid>
       </Grid>
     </>

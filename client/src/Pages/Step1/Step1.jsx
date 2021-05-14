@@ -1,18 +1,14 @@
 import { useState } from 'react';
 import isEmail from 'validator/lib/isEmail';
 import isMobilePhone from 'validator/lib/isMobilePhone';
+import Typography from '../../Components/Typography/Typography';
+import StyledButton from '../../Components/StyledButton/StyledButton';
+import Input from '../../Components/Input/Input';
+import DropDown from '../../Components/Input/DropDown';
+import CheckBox from '../../Components/Input/CheckBox';
+
 //////////////////////////////////// Material UI components///////////
-import Select from '@material-ui/core/Select/Select';
-import MenuItem from '@material-ui/core/MenuItem/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Typography from '@material-ui/core/Typography/Typography';
-import TextField from '@material-ui/core/TextField/TextField';
 import Grid from '@material-ui/core/Grid/Grid';
-import StyledFab from '../../Components/StyledButton/StyledButton';
 ////////////////////////////////////////////////////////////////////
 
 const Step1 = ({ state, setState }) => {
@@ -82,163 +78,76 @@ const Step1 = ({ state, setState }) => {
     <>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <Typography variant='h5'>Apply now to work in Dubai</Typography>
+          <Typography size={1.375}>Apply now to work in Dubai</Typography>
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            id='firstname'
-            label='First name'
-            variant='outlined'
-            value={firstName}
-            onChange={(e) => setfirstName(e.target.value)}
-          />
+          <Input setValue={setfirstName} value={firstName} label='First name' />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            id='lastname'
-            label='Last name'
-            variant='outlined'
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
+          <Input setValue={setLastName} value={lastName} label='Last name' />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            name='someDate'
-            label='Date of birth'
-            variant='outlined'
-            InputLabelProps={{ shrink: true, required: true }}
-            type='date'
-            onChange={(e) => setDOB(e.target.value)}
+          <Input
+            setValue={setDOB}
             value={dob}
+            type='date'
+            label='Date of birth'
           />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <Typography>Gender</Typography>
-          <FormControl component='fieldset'>
-            <FormGroup aria-label='position' row>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={gender === 'male' ? true : false}
-                    onChange={(e) => setGender('male')}
-                    name='Male'
-                    color='primary'
-                  />
-                }
-                label='Male'
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={gender === 'female' ? true : false}
-                    onChange={(e) => setGender('female')}
-                    name='female'
-                    color='primary'
-                  />
-                }
-                label='Female'
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={gender === 'other' ? true : false}
-                    onChange={(e) => setGender('other')}
-                    name='other'
-                    color='primary'
-                  />
-                }
-                label='Other'
-              />
-            </FormGroup>
-          </FormControl>
+          <Typography size={0.875}>Gender</Typography>
+          <CheckBox
+            value={gender}
+            setValue={setGender}
+            options={['Male', 'Female', 'Other']}
+            label='Gender'
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <FormControl style={{ width: '100%' }}>
-            <InputLabel id='nationality'>Nationality</InputLabel>
-            <Select
-              style={{ width: '100%' }}
-              labelId='nationality'
-              id='nationality'
-              value={nationality}
-              onChange={(e) => setNationality(e.target.value)}
-            >
-              <MenuItem value={'United States'}>United States</MenuItem>
-              <MenuItem value={'United Kingdom'}>United Kingdom</MenuItem>
-              <MenuItem value={'United Arab Emirates'}>
-                United Arab Emirates
-              </MenuItem>
-            </Select>
-          </FormControl>
+          <DropDown
+            setValue={setNationality}
+            value={nationality}
+            options={['United States', 'United Arab Emirates', 'Germany']}
+            label='Nationality'
+          />
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <FormControl style={{ width: '100%' }}>
-            <InputLabel id='country'>Country</InputLabel>
-            <Select
-              fullWidth
-              labelId='country'
-              id='country'
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-            >
-              <MenuItem value={'United States'}>United States</MenuItem>
-              <MenuItem value={'United Kingdom'}>United Kingdom</MenuItem>
-              <MenuItem value={'United Arab Emirates'}>
-                United Arab Emirates
-              </MenuItem>
-            </Select>
-          </FormControl>
+          <DropDown
+            value={country}
+            setValue={setCountry}
+            options={['United States', 'United Arab Emirates', 'Germany']}
+            label='Country'
+          />
         </Grid>
 
         <Grid item xs={12}>
-          <Typography variant='h6'>How we can contact you?</Typography>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            id='contact'
-            label='Contact number:'
-            variant='outlined'
-            value={contact}
-            onChange={(e) => setContact(e.target.value)}
-          />
+          <Typography>How we can contact you?</Typography>
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <TextField
-            type='email'
-            fullWidth
-            id='email'
-            label='Email address:'
-            variant='outlined'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <Input setValue={setContact} value={contact} label='Contact number' />
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+          <Input setValue={setEmail} value={email} label='Email address' />
         </Grid>
 
         {err ? (
           <Grid item xs={12}>
-            <Typography color='error'>{err}</Typography>
+            <Typography color='red'>{err}</Typography>
           </Grid>
         ) : null}
 
         <Grid item xs={12}>
-          <StyledFab
-            col='pur'
-            onClick={(e) => confirmStep(e)}
-            variant='extended'
-          >
+          <StyledButton col='pur' onClick={(e) => confirmStep(e)}>
             Apply Now
-          </StyledFab>
+          </StyledButton>
         </Grid>
       </Grid>
     </>
