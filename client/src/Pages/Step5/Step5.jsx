@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import Typography from '../../Components/Typography/Typography';
 import StyledButton from '../../Components/StyledButton/StyledButton';
 import Box from '../../Components/Box/Box';
+import { Image } from '../../Components/PageBackground/PageBackground';
+import { page5 } from '../Backgrounds';
 
 const Step5 = ({ state, setState, availableInt }) => {
   const [interests, setInterests] = useState(state.userInfo.interests);
@@ -34,6 +36,17 @@ const Step5 = ({ state, setState, availableInt }) => {
 
   return (
     <>
+      {page5.map((img) => (
+        <Image
+          src={`./images/${img.img}.svg`}
+          top={img.layout === 'm' ? (img.y * 100) / 913 : (img.y * 100) / 1080}
+          left={img.layout === 'm' ? (img.x * 100) / 375 : (img.x * 100) / 1920}
+          rotate={img.rotation}
+          layout={img.layout}
+          key={uuidv4()}
+        />
+      ))}
+
       <Box p xs={12}>
         <Typography>What are your interests ?</Typography>
       </Box>

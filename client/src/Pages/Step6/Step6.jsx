@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import Typography from '../../Components/Typography/Typography';
 import StyledButton from '../../Components/StyledButton/StyledButton';
 import Box from '../../Components/Box/Box';
+import { Image } from '../../Components/PageBackground/PageBackground';
+import { page6 } from '../Backgrounds';
 
 const Step6 = ({ state, setState, savings }) => {
   const [saving, setSaving] = useState(state.userInfo.saving);
@@ -21,6 +23,17 @@ const Step6 = ({ state, setState, savings }) => {
 
   return (
     <>
+      {page6.map((img) => (
+        <Image
+          src={`./images/${img.img}.svg`}
+          top={img.layout === 'm' ? (img.y * 100) / 913 : (img.y * 100) / 1080}
+          left={img.layout === 'm' ? (img.x * 100) / 375 : (img.x * 100) / 1920}
+          rotate={img.rotation}
+          layout={img.layout}
+          key={uuidv4()}
+        />
+      ))}
+
       <Box p xs={12}>
         <Typography>Do you have any financial savings ?</Typography>
       </Box>
