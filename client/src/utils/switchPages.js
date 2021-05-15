@@ -1,13 +1,15 @@
-import Step1 from '../Pages/Step1/Step1';
-import Step2 from '../Pages/Step2/Step2';
-import Step3 from '../Pages/Step3/Step3';
-import Step4 from '../Pages/Step4/Step4';
-import Step5 from '../Pages/Step5/Step5';
-import Step6 from '../Pages/Step6/Step6';
-import Step7 from '../Pages/Step7/Step7';
-import Step8 from '../Pages/Step8/Step8';
-import Step9 from '../Pages/Step9/Step9';
+import { lazy } from 'react';
 import { motion } from 'framer-motion';
+
+const Step1 = lazy(() => import('../Pages/Step1/Step1'));
+const Step2 = lazy(() => import('../Pages/Step2/Step2'));
+const Step3 = lazy(() => import('../Pages/Step3/Step3'));
+const Step4 = lazy(() => import('../Pages/Step4/Step4'));
+const Step5 = lazy(() => import('../Pages/Step5/Step5'));
+const Step6 = lazy(() => import('../Pages/Step6/Step6'));
+const Step7 = lazy(() => import('../Pages/Step7/Step7'));
+const Step8 = lazy(() => import('../Pages/Step8/Step8'));
+const Step9 = lazy(() => import('../Pages/Step9/Step9'));
 
 const switchPages = (state, setState, fetchedData) => {
   const {

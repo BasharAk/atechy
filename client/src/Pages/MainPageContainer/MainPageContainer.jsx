@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Typography from '../../Components/Typography/Typography';
 import ProgressBar from '../../Components/ProgressBar/ProgressBar';
 import MainPageCover from './MainPageCover';
@@ -29,7 +30,9 @@ const MainPageContainer = ({ children, progress, currentStep }) => {
             </Box>
           </Box>
           <AnimatePresence exitBeforeEnter initial={false}>
-            <Box xs={12}>{children}</Box>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Box xs={12}>{children}</Box>
+            </Suspense>
           </AnimatePresence>
         </Box>
       </Box>

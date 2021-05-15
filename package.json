@@ -25,7 +25,5 @@
   "devDependencies": {
     "concurrently": "^6.0.2"
   },
-  "dependencies": {
-    "framer-motion": "^4.1.16"
-  }
+  "dependencies": {}
 }
