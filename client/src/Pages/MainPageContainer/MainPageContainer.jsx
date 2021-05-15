@@ -3,6 +3,7 @@ import ProgressBar from '../../Components/ProgressBar/ProgressBar';
 import MainPageCover from './MainPageCover';
 import Box from '../../Components/Box/Box';
 import { Container } from '../../Components/PageBackground/PageBackground';
+import { AnimatePresence } from 'framer-motion';
 
 const MainPageContainer = ({ children, progress, currentStep }) => {
   return (
@@ -27,8 +28,9 @@ const MainPageContainer = ({ children, progress, currentStep }) => {
               </Box>
             </Box>
           </Box>
-
-          <Box xs={12}>{children}</Box>
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <Box xs={12}>{children}</Box>
+          </AnimatePresence>
         </Box>
       </Box>
     </Container>

@@ -7,6 +7,7 @@ import Step6 from '../Pages/Step6/Step6';
 import Step7 from '../Pages/Step7/Step7';
 import Step8 from '../Pages/Step8/Step8';
 import Step9 from '../Pages/Step9/Step9';
+import { motion } from 'framer-motion';
 
 const switchPages = (state, setState, fetchedData) => {
   const {
@@ -18,47 +19,126 @@ const switchPages = (state, setState, fetchedData) => {
     educationList2,
     howLongList
   } = fetchedData;
+
   switch (state.currentStep) {
     case 1:
-      return <Step1 state={state} setState={setState} />;
+      return (
+        <motion.div
+          key='page1'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step1 state={state} setState={setState} />
+        </motion.div>
+      );
     case 2:
       return (
-        <Step2 state={state} setState={setState} howLongList={howLongList} />
+        <motion.div
+          key='page2'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step2 state={state} setState={setState} howLongList={howLongList} />
+        </motion.div>
       );
     case 3:
-      return <Step3 state={state} setState={setState} whyList={whyList} />;
+      return (
+        <motion.div
+          key='page3'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step3 state={state} setState={setState} whyList={whyList} />
+        </motion.div>
+      );
     case 4:
       return (
-        <Step4 state={state} setState={setState} availableInd={industries} />
+        <motion.div
+          key='page4'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step4 state={state} setState={setState} availableInd={industries} />
+        </motion.div>
       );
     case 5:
       return (
-        <Step5 state={state} setState={setState} availableInt={interests} />
+        <motion.div
+          key='page5'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step5 state={state} setState={setState} availableInt={interests} />
+        </motion.div>
       );
     case 6:
-      return <Step6 state={state} setState={setState} savings={savings} />;
+      return (
+        <motion.div
+          key='page6'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step6 state={state} setState={setState} savings={savings} />
+        </motion.div>
+      );
     case 7:
       return (
-        <Step7
-          state={state}
-          setState={setState}
-          educationList={educationList}
-        />
+        <motion.div
+          key='page7'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step7
+            state={state}
+            setState={setState}
+            educationList={educationList}
+          />
+        </motion.div>
       );
     case 8:
       return (
-        <Step8
-          state={state}
-          setState={setState}
-          educationList={educationList2}
-        />
+        <motion.div
+          key='page8'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step8
+            state={state}
+            setState={setState}
+            educationList={educationList2}
+          />
+        </motion.div>
       );
     case 9:
       return (
-        <Step9 state={state} setState={setState} fetchedData={fetchedData} />
+        <motion.div
+          key='page9'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step9 state={state} setState={setState} fetchedData={fetchedData} />
+        </motion.div>
       );
     default:
-      return <Step1 state={state} setState={setState} />;
+      return (
+        <motion.div
+          key='page1'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Step1 state={state} setState={setState} />
+        </motion.div>
+      );
   }
 };
 

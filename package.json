@@ -24,5 +24,8 @@
   "homepage": "https://github.com/BasharAk/atechy#readme",
   "devDependencies": {
     "concurrently": "^6.0.2"
+  },
+  "dependencies": {
+    "framer-motion": "^4.1.16"
   }
 }
