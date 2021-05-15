@@ -3,6 +3,16 @@ import switchPages from './utils/switchPages';
 import axios from 'axios';
 import MainPageContainer from './Pages/MainPageContainer/MainPageContainer';
 
+const fetchData = async (setState) => {
+  try {
+    const lists = await axios.get('http://localhost:3001/data');
+    setState(lists.data);
+  } catch (err) {
+    console.log('Error fetching data: ', err);
+    setState(false);
+  }
+};
+
 const App = () => {
   const [state, setState] = useState({
     currentStep: 1,
@@ -27,33 +37,11 @@ const App = () => {
       educationTime: 'Right now'
     }
   });
-  const [fetchedData, setFetchedData] = useState('');
+
+  const [fetchedData, setFetchedData] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const whyList = await axios.get('http://localhost:3001/whyList');
-      const industries = await axios.get('http://localhost:3001/industries');
-      const interests = await axios.get('http://localhost:3001/interests');
-      const savings = await axios.get('http://localhost:3001/savings');
-      const educationList = await axios.get(
-        'http://localhost:3001/educationList'
-      );
-      const educationList2 = await axios.get(
-        'http://localhost:3001/educationTimeList'
-      );
-      const howLongList = await axios.get('http://localhost:3001/howLongList');
-
-      setFetchedData({
-        whyList: whyList.data,
-        industries: industries.data,
-        interests: interests.data,
-        savings: savings.data,
-        educationList: educationList.data,
-        educationList2: educationList2.data,
-        howLongList: howLongList.data
-      });
-    };
-    fetchData();
+    fetchData(setFetchedData);
   }, []);
 
   return (
@@ -62,7 +50,11 @@ const App = () => {
         progress={state.progress}
         currentStep={state.currentStep}
       >
-        {switchPages(state, setState, fetchedData)}
+        {fetchedData ? (
+          switchPages(state, setState, fetchedData)
+        ) : (
+          <div>Loading data from server please wait....</div>
+        )}
       </MainPageContainer>
     </>
   );
