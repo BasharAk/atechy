@@ -19,4 +19,6 @@ app.get('/data', async (req, res) => {
   }
 });
 
+app.use('/res', express.static('./public'));
+
 app.listen('3001', () => console.log(`Server Started`));

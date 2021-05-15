@@ -39,7 +39,7 @@ const Step3 = ({ state, setState, whyList }) => {
     <>
       {page3.map((img) => (
         <Image
-          src={`./images/${img.img}.svg`}
+          src={`${process.env.REACT_APP_RES_PATH}/images/${img.img}.svg`}
           top={img.layout === 'm' ? (img.y * 100) / 913 : (img.y * 100) / 1080}
           left={img.layout === 'm' ? (img.x * 100) / 375 : (img.x * 100) / 1920}
           rotate={img.rotation}
@@ -59,7 +59,10 @@ const Step3 = ({ state, setState, whyList }) => {
             col={check(why.name) ? 'pur' : 'white'}
             onClick={() => updateWhy(why.name)}
           >
-            <img src={`./icons/page3/${why.icon}.svg`} alt={why.name} />
+            <img
+              src={`${process.env.REACT_APP_RES_PATH}/icons/page3/${why.icon}.svg`}
+              alt={why.name}
+            />
             {' ' + why.name}
           </StyledButton>
         ))}

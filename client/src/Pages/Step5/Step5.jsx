@@ -38,7 +38,7 @@ const Step5 = ({ state, setState, availableInt }) => {
     <>
       {page5.map((img) => (
         <Image
-          src={`./images/${img.img}.svg`}
+          src={`${process.env.REACT_APP_RES_PATH}/images/${img.img}.svg`}
           top={img.layout === 'm' ? (img.y * 100) / 913 : (img.y * 100) / 1080}
           left={img.layout === 'm' ? (img.x * 100) / 375 : (img.x * 100) / 1920}
           rotate={img.rotation}
@@ -58,7 +58,10 @@ const Step5 = ({ state, setState, availableInt }) => {
             col={check(int.name) ? 'pur' : 'white'}
             onClick={() => updateInt(int.name)}
           >
-            <img src={`./icons/page5/${int.icon}.svg`} alt={int.name} />
+            <img
+              src={`${process.env.REACT_APP_RES_PATH}/icons/page5/${int.icon}.svg`}
+              alt={int.name}
+            />
             {' ' + int.name}
           </StyledButton>
         ))}

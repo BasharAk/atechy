@@ -73,12 +73,18 @@ const Step9 = ({ state, setState, fetchedData }) => {
           <StyledButton col='pur'>
             {visited ? (
               <>
-                <img src={'./icons/page2/yes.svg'} alt='yes' />
+                <img
+                  src={`${process.env.REACT_APP_RES_PATH}/icons/page2/yes.svg`}
+                  alt='yes'
+                />
                 {' Yes'}
               </>
             ) : (
               <>
-                <img src={'./icons/page2/no.svg'} alt='no' />
+                <img
+                  src={`${process.env.REACT_APP_RES_PATH}/icons/page2/no.svg`}
+                  alt='no'
+                />
                 {' No'}
               </>
             )}
@@ -87,12 +93,18 @@ const Step9 = ({ state, setState, fetchedData }) => {
           <StyledButton col='pur'>
             {relatives ? (
               <>
-                <img src={'./icons/page2/yes.svg'} alt='yes' />
+                <img
+                  src={`${process.env.REACT_APP_RES_PATH}/icons/page2/yes.svg`}
+                  alt='yes'
+                />
                 {' Yes'}
               </>
             ) : (
               <>
-                <img src={'./icons/page2/no.svg'} alt='no' />
+                <img
+                  src={`${process.env.REACT_APP_RES_PATH}/icons/page2/no.svg`}
+                  alt='no'
+                />
                 {' No'}
               </>
             )}
@@ -101,7 +113,10 @@ const Step9 = ({ state, setState, fetchedData }) => {
             How long do you want to stay in stay in Dubai?
           </Typography>
           <StyledButton col='pur'>
-            <img src={'./icons/page2/cal.svg'} alt={howLong} />
+            <img
+              src={`${process.env.REACT_APP_RES_PATH}/icons/page2/cal.svg`}
+              alt={howLong}
+            />
             {' ' + howLong}
           </StyledButton>
           {why.length > 0 ? (
@@ -111,7 +126,7 @@ const Step9 = ({ state, setState, fetchedData }) => {
                 {why.map((item) => (
                   <StyledButton col='pur' key={uuidv4()}>
                     <img
-                      src={`./icons/page3/${
+                      src={`${process.env.REACT_APP_RES_PATH}/icons/page3/${
                         fetchedData.whyList.filter(
                           (list) => list.name === item
                         )[0].icon
@@ -133,7 +148,7 @@ const Step9 = ({ state, setState, fetchedData }) => {
                 {industries.map((item) => (
                   <StyledButton col='pur' key={uuidv4()}>
                     <img
-                      src={`./icons/page4/${
+                      src={`${process.env.REACT_APP_RES_PATH}/icons/page4/${
                         fetchedData.industries.find(
                           (list) => list.name === item
                         ).icon
@@ -153,7 +168,7 @@ const Step9 = ({ state, setState, fetchedData }) => {
                 {interests.map((item) => (
                   <StyledButton col='pur' key={uuidv4()}>
                     <img
-                      src={`./icons/page5/${
+                      src={`${process.env.REACT_APP_RES_PATH}/icons/page5/${
                         fetchedData.interests.find((list) => list.name === item)
                           .icon
                       }.svg`}
@@ -168,7 +183,7 @@ const Step9 = ({ state, setState, fetchedData }) => {
           <Typography>What is your level of education?</Typography>
           <StyledButton col='pur'>
             <img
-              src={`./icons/page7/${
+              src={`${process.env.REACT_APP_RES_PATH}/icons/page7/${
                 fetchedData.educationList.find(
                   (list) => list.name === education
                 ).icon

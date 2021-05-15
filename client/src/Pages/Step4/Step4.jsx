@@ -38,7 +38,7 @@ const Step4 = ({ state, setState, availableInd }) => {
     <>
       {page4.map((img) => (
         <Image
-          src={`./images/${img.img}.svg`}
+          src={`${process.env.REACT_APP_RES_PATH}/images/${img.img}.svg`}
           top={img.layout === 'm' ? (img.y * 100) / 913 : (img.y * 100) / 1080}
           left={img.layout === 'm' ? (img.x * 100) / 375 : (img.x * 100) / 1920}
           rotate={img.rotation}
@@ -64,7 +64,10 @@ const Step4 = ({ state, setState, availableInd }) => {
               col={check(indus.name) ? 'pur' : 'white'}
               onClick={() => updateInd(indus.name)}
             >
-              <img src={`./icons/page4/${indus.icon}.svg`} alt={indus.name} />
+              <img
+                src={`${process.env.REACT_APP_RES_PATH}/icons/page4/${indus.icon}.svg`}
+                alt={indus.name}
+              />
               {' ' + indus.name}
             </StyledButton>
           ))}
