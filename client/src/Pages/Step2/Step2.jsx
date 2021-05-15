@@ -46,13 +46,15 @@ const Step2 = ({ state, setState, howLongList }) => {
           col={visited ? 'white' : 'pur'}
           onClick={() => setVisited(false)}
         >
-          no
+          <img src={'./icons/page2/no.svg'} alt='no' />
+          {' No'}
         </StyledButton>
         <StyledButton
           col={visited ? 'pur' : 'white'}
           onClick={() => setVisited(true)}
         >
-          yes
+          <img src={'./icons/page2/yes.svg'} alt='yes' />
+          {' Yes'}
         </StyledButton>
       </Box>
 
@@ -65,13 +67,15 @@ const Step2 = ({ state, setState, howLongList }) => {
           col={relatives ? 'white' : 'pur'}
           onClick={() => setRelatives(false)}
         >
-          no
+          <img src={'./icons/page2/no.svg'} alt='no' />
+          {' No'}
         </StyledButton>
         <StyledButton
           col={relatives ? 'pur' : 'white'}
           onClick={() => setRelatives(true)}
         >
-          yes
+          <img src={'./icons/page2/yes.svg'} alt='yes' />
+          {' Yes'}
         </StyledButton>
       </Box>
 
@@ -83,10 +87,11 @@ const Step2 = ({ state, setState, howLongList }) => {
         {howLongList.map((long) => (
           <StyledButton
             key={uuidv4()}
-            col={long === howLong ? 'pur' : 'white'}
-            onClick={() => setHowLong(long)}
+            col={long.name === howLong ? 'pur' : 'white'}
+            onClick={() => setHowLong(long.name)}
           >
-            {long}
+            <img src={'./icons/page2/cal.svg'} alt={long.name} />
+            {' ' + long.name}
           </StyledButton>
         ))}
       </Box>

@@ -54,7 +54,9 @@ const switchPages = (state, setState, fetchedData) => {
         />
       );
     case 9:
-      return <Step9 state={state} setState={setState} />;
+      return (
+        <Step9 state={state} setState={setState} fetchedData={fetchedData} />
+      );
     default:
       return <Step1 state={state} setState={setState} />;
   }

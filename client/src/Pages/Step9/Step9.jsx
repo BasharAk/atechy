@@ -4,7 +4,7 @@ import StyledButton from '../../Components/StyledButton/StyledButton';
 import Card from '../../Components/Card/Card';
 import Box from '../../Components/Box/Box';
 
-const Step9 = ({ state, setState }) => {
+const Step9 = ({ state, setState, fetchedData }) => {
   const {
     firstName,
     lastName,
@@ -70,20 +70,55 @@ const Step9 = ({ state, setState }) => {
           <Typography color='#4D33E2'>Questionnaire</Typography>
           <br />
           <Typography>Have you ever visited Dubai?</Typography>
-          <StyledButton col='pur'>{visited ? 'Yes' : 'No'}</StyledButton>
+          <StyledButton col='pur'>
+            {visited ? (
+              <>
+                <img src={'./icons/page2/yes.svg'} alt='yes' />
+                {' Yes'}
+              </>
+            ) : (
+              <>
+                <img src={'./icons/page2/no.svg'} alt='no' />
+                {' No'}
+              </>
+            )}
+          </StyledButton>
           <Typography>Do you have any friends or family in Dubai?</Typography>
-          <StyledButton col='pur'>{relatives ? 'Yes' : 'No'}</StyledButton>
+          <StyledButton col='pur'>
+            {relatives ? (
+              <>
+                <img src={'./icons/page2/yes.svg'} alt='yes' />
+                {' Yes'}
+              </>
+            ) : (
+              <>
+                <img src={'./icons/page2/no.svg'} alt='no' />
+                {' No'}
+              </>
+            )}
+          </StyledButton>
           <Typography>
             How long do you want to stay in stay in Dubai?
           </Typography>
-          <StyledButton col='pur'>{howLong}</StyledButton>
+          <StyledButton col='pur'>
+            <img src={'./icons/page2/cal.svg'} alt={howLong} />
+            {' ' + howLong}
+          </StyledButton>
           {why.length > 0 ? (
             <>
               <Typography>Why do you want to come to Dubai ?</Typography>
               <Box>
                 {why.map((item) => (
                   <StyledButton col='pur' key={uuidv4()}>
-                    {item}
+                    <img
+                      src={`./icons/page3/${
+                        fetchedData.whyList.filter(
+                          (list) => list.name === item
+                        )[0].icon
+                      }.svg`}
+                      alt={item}
+                    />
+                    {' ' + item}
                   </StyledButton>
                 ))}
               </Box>
@@ -97,7 +132,15 @@ const Step9 = ({ state, setState }) => {
               <Box>
                 {industries.map((item) => (
                   <StyledButton col='pur' key={uuidv4()}>
-                    {item}
+                    <img
+                      src={`./icons/page4/${
+                        fetchedData.industries.find(
+                          (list) => list.name === item
+                        ).icon
+                      }.svg`}
+                      alt={item}
+                    />
+                    {' ' + item}
                   </StyledButton>
                 ))}
               </Box>
@@ -109,14 +152,31 @@ const Step9 = ({ state, setState }) => {
               <Box>
                 {interests.map((item) => (
                   <StyledButton col='pur' key={uuidv4()}>
-                    {item}
+                    <img
+                      src={`./icons/page5/${
+                        fetchedData.interests.find((list) => list.name === item)
+                          .icon
+                      }.svg`}
+                      alt={item}
+                    />
+                    {' ' + item}
                   </StyledButton>
                 ))}
               </Box>
             </>
           ) : null}
           <Typography>What is your level of education?</Typography>
-          <StyledButton col='pur'>{education}</StyledButton>
+          <StyledButton col='pur'>
+            <img
+              src={`./icons/page7/${
+                fetchedData.educationList.find(
+                  (list) => list.name === education
+                ).icon
+              }.svg`}
+              alt={education}
+            />
+            {' ' + education}
+          </StyledButton>
         </Card>
       </Box>
 

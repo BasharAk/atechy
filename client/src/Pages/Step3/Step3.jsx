@@ -24,9 +24,6 @@ const Step3 = ({ state, setState, whyList }) => {
   };
 
   const confirmStep = (e) => {
-    ///////////////////////////
-    //validators should be here
-    ///////////////////////////
     setState({
       ...state,
       userInfo: {
@@ -59,10 +56,11 @@ const Step3 = ({ state, setState, whyList }) => {
         {whyList.map((why) => (
           <StyledButton
             key={uuidv4()}
-            col={check(why) ? 'pur' : 'white'}
-            onClick={() => updateWhy(why)}
+            col={check(why.name) ? 'pur' : 'white'}
+            onClick={() => updateWhy(why.name)}
           >
-            {why}
+            <img src={`./icons/page3/${why.icon}.svg`} alt={why.name} />
+            {' ' + why.name}
           </StyledButton>
         ))}
       </Box>

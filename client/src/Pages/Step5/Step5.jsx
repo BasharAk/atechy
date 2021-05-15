@@ -55,10 +55,11 @@ const Step5 = ({ state, setState, availableInt }) => {
         {availableInt.map((int) => (
           <StyledButton
             key={uuidv4()}
-            col={check(int) ? 'pur' : 'white'}
-            onClick={() => updateInt(int)}
+            col={check(int.name) ? 'pur' : 'white'}
+            onClick={() => updateInt(int.name)}
           >
-            {int}
+            <img src={`./icons/page5/${int.icon}.svg`} alt={int.name} />
+            {' ' + int.name}
           </StyledButton>
         ))}
       </Box>

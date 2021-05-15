@@ -42,10 +42,14 @@ const Step8 = ({ state, setState, educationList }) => {
         {educationList.map((educationItem) => (
           <StyledButton
             key={uuidv4()}
-            col={education === educationItem ? 'pur' : 'white'}
-            onClick={() => setEducation(educationItem)}
+            col={education === educationItem.name ? 'pur' : 'white'}
+            onClick={() => setEducation(educationItem.name)}
           >
-            {educationItem}
+            <img
+              src={`./icons/page8/${educationItem.icon}.svg`}
+              alt={educationItem.name}
+            />
+            {' ' + educationItem.name}
           </StyledButton>
         ))}
       </Box>

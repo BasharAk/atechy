@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-  display: inline-block;
   min-width: 6rem;
   height: 3rem;
   margin: 0rem 1rem 0.5rem 0;

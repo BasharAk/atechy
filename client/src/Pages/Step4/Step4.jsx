@@ -61,10 +61,11 @@ const Step4 = ({ state, setState, availableInd }) => {
           {availableInd.map((indus) => (
             <StyledButton
               key={uuidv4()}
-              col={check(indus) ? 'pur' : 'white'}
-              onClick={() => updateInd(indus)}
+              col={check(indus.name) ? 'pur' : 'white'}
+              onClick={() => updateInd(indus.name)}
             >
-              {indus}
+              <img src={`./icons/page4/${indus.icon}.svg`} alt={indus.name} />
+              {' ' + indus.name}
             </StyledButton>
           ))}
         </Box>

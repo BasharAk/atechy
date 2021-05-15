@@ -42,10 +42,14 @@ const Step6 = ({ state, setState, savings }) => {
         {savings.map((savingsItem) => (
           <StyledButton
             key={uuidv4()}
-            col={saving === savingsItem ? 'pur' : 'white'}
-            onClick={() => setSaving(savingsItem)}
+            col={saving === savingsItem.name ? 'pur' : 'white'}
+            onClick={() => setSaving(savingsItem.name)}
           >
-            {savingsItem}
+            <img
+              src={`./icons/page6/${savingsItem.icon}.svg`}
+              alt={savingsItem.name}
+            />
+            {' ' + savingsItem.name}
           </StyledButton>
         ))}
       </Box>
